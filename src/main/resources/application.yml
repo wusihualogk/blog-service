@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: service
+  profiles:
+    active: service1
+
+---
+spring:
+  profiles: service1
+server:
+  port: 8000
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka,http://127.0.0.1:8001/eureka,http://127.0.0.1:8002/eureka
+
+---
+spring:
+  profiles: service2
+server:
+  port: 8001
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka,http://127.0.0.1:8001/eureka,http://127.0.0.1:8002/eureka
+
+---
+spring:
+  profiles: service3
+server:
+  port: 8002
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka,http://127.0.0.1:8001/eureka,http://127.0.0.1:8002/eureka
